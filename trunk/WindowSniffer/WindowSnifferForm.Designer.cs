@@ -32,20 +32,21 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshWindowListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.setWindowTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveWindowToScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.dgdWindows = new System.Windows.Forms.DataGridView();
-            this.refreshWindowListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.hideWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.handleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.boundsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.windowBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgdWindows)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowBindingSource)).BeginInit();
@@ -64,6 +65,8 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -80,6 +83,18 @@
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
             this.windowToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.windowToolStripMenuItem.Text = "Window";
+            // 
+            // refreshWindowListToolStripMenuItem
+            // 
+            this.refreshWindowListToolStripMenuItem.Name = "refreshWindowListToolStripMenuItem";
+            this.refreshWindowListToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.refreshWindowListToolStripMenuItem.Text = "Refresh Window List";
+            this.refreshWindowListToolStripMenuItem.Click += new System.EventHandler(this.refreshWindowListToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(191, 6);
             // 
             // setWindowTextToolStripMenuItem
             // 
@@ -102,6 +117,13 @@
             this.showWindowToolStripMenuItem.Text = "Show Window";
             this.showWindowToolStripMenuItem.Click += new System.EventHandler(this.showWindowToolStripMenuItem_Click);
             // 
+            // hideWindowToolStripMenuItem
+            // 
+            this.hideWindowToolStripMenuItem.Name = "hideWindowToolStripMenuItem";
+            this.hideWindowToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.hideWindowToolStripMenuItem.Text = "Hide Window";
+            this.hideWindowToolStripMenuItem.Click += new System.EventHandler(this.hideWindowToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Location = new System.Drawing.Point(0, 397);
@@ -109,7 +131,7 @@
             this.statusStrip1.Size = new System.Drawing.Size(467, 22);
             this.statusStrip1.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgdWindows
             // 
             this.dgdWindows.AllowUserToResizeRows = false;
             this.dgdWindows.AutoGenerateColumns = false;
@@ -125,31 +147,12 @@
             this.dgdWindows.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgdWindows.Location = new System.Drawing.Point(0, 24);
             this.dgdWindows.MultiSelect = false;
-            this.dgdWindows.Name = "dataGridView1";
+            this.dgdWindows.Name = "dgdWindows";
             this.dgdWindows.ReadOnly = true;
             this.dgdWindows.RowHeadersVisible = false;
             this.dgdWindows.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgdWindows.Size = new System.Drawing.Size(467, 373);
             this.dgdWindows.TabIndex = 1;
-            // 
-            // refreshWindowListToolStripMenuItem
-            // 
-            this.refreshWindowListToolStripMenuItem.Name = "refreshWindowListToolStripMenuItem";
-            this.refreshWindowListToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.refreshWindowListToolStripMenuItem.Text = "Refresh Window List";
-            this.refreshWindowListToolStripMenuItem.Click += new System.EventHandler(this.refreshWindowListToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(191, 6);
-            // 
-            // hideWindowToolStripMenuItem
-            // 
-            this.hideWindowToolStripMenuItem.Name = "hideWindowToolStripMenuItem";
-            this.hideWindowToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.hideWindowToolStripMenuItem.Text = "Hide Window";
-            this.hideWindowToolStripMenuItem.Click += new System.EventHandler(this.hideWindowToolStripMenuItem_Click);
             // 
             // handleDataGridViewTextBoxColumn
             // 
@@ -195,6 +198,13 @@
             // 
             this.windowBindingSource.DataSource = typeof(WindowSniffer.Window);
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // WindowSnifferForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,6 +244,7 @@
         private System.Windows.Forms.ToolStripMenuItem refreshWindowListToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem hideWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
 
