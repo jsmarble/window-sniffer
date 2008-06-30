@@ -16,12 +16,15 @@ namespace WindowSniffer
             InitializeComponent();
             this.Icon = Resources.AppIcon;
             RefreshWindows();
+            handleDataGridViewTextBoxColumn.SortMode = DataGridViewColumnSortMode.Programmatic;
         }
 
         private void RefreshWindows()
         {
-            BindingList<Window> windows = new BindingList<Window>(NativeMethods.GetAllWindows());
-            windowBindingSource.DataSource = windows;
+            List<Window> windows = NativeMethods.GetAllWindows();
+            windows.Sort();
+            BindingList<Window> windowsBL = new BindingList<Window>(windows);
+            windowBindingSource.DataSource = windowsBL;
             dgdWindows.SortCompare += new DataGridViewSortCompareEventHandler(dgdWindows_SortCompare);
         }
 
